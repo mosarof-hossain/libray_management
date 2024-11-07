@@ -1,0 +1,65 @@
+1. Data Setup:
+The books array holds book objects with properties like id, name, and quantity. We also initialize two arrays:
+
+issuedBooksArray to store issued books.
+returnedBooksArray to store books that are returned.
+2. Display Books (displayBooks function):
+This function displays the books in a table on the web page.
+
+It first clears the existing content in the table, then loops over each book in the books array (this is iteration).
+For each book, it creates a row and adds the book’s id, name, and quantity into that row.
+This function is updating the display each time it’s called.
+3. Search for a Book (searchBook function):
+This function performs a linear search to find a book by id or name.
+
+The function takes user input from searchInput and converts it to lowercase for easier matching.
+It uses the find() method to look through each book in the books array (linear search) and checks if:
+The id matches exactly, or
+The name includes the search term.
+If a match is found, it shows the book’s details; otherwise, it shows “Book Not Found!”
+4. Add a Book (addBook function):
+This function inserts a new book into the books array or updates an existing book’s quantity.
+
+It takes input for the new book’s ID, name, and quantity.
+Then it searches (using find()) to see if the book ID already exists in the books array (linear search).
+If it exists, it updates the existing book’s quantity by adding the new quantity.
+If it doesn’t exist, it inserts the new book into the books array using push().
+Finally, it calls displayBooks() to update the book list on the page.
+5. Issue a Book (issueBook function):
+This function removes one from the quantity of a book in the books array and adds it to the issuedBooksArray.
+
+It gets the student’s name and the book ID from input fields.
+It then finds the book in the books array (linear search).
+If the book is available (quantity > 0), it decreases the book’s quantity by 1.
+It also inserts a new entry into issuedBooksArray with the student’s name, book ID, and book name.
+After updating, it calls displayBooks() and updateIssuedBooksList() to refresh the view.
+6. Return a Book (returnBook function):
+This function removes a book from issuedBooksArray and adds it to returnedBooksArray.
+
+It gets the return details (book ID and student name).
+It finds the issued book’s entry in issuedBooksArray (linear search with findIndex()).
+If found, it removes it from issuedBooksArray using splice() and inserts it into returnedBooksArray.
+It then finds the matching book in the books array and updates its quantity by increasing it by 1.
+The function then calls displayBooks() and updateReturnedBooksList() to update the view.
+7. Update Issued Books List (updateIssuedBooksList function):
+This function displays all books currently issued.
+
+It clears the existing list of issued books, then loops through each entry in issuedBooksArray.
+It creates a list item for each issued book and displays the book name, ID, and student name.
+8. Update Returned Books List (updateReturnedBooksList function):
+This function displays all books that have been returned.
+
+It clears the existing list of returned books, then loops through each entry in returnedBooksArray.
+It creates a list item for each returned book with the book name, ID, and student name.
+Summary of Array Operations:
+Insert: New books are added to books in addBook(), issued books are added to issuedBooksArray, and returned books to returnedBooksArray.
+Delete: An issued book is removed from issuedBooksArray when it’s returned.
+Update: Book quantities are updated in books when books are issued or returned.
+Linear Search: find() and findIndex() perform linear searches on books and issuedBooksArray to locate specific entries.
+This code provides a basic library management system using simple array operations and linear search.
+
+
+
+
+
+
