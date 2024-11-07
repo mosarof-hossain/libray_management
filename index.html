@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUB Library Management System</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen px-96 bg-[url('assets/libray.jpg')] bg-cover">
+ <main class="backdrop-blur-md p-10 my-10 bg-white/30 rounded-2xl">
+  <header class="flex justify-center items-center mb-4">
+    <img src="assets/au.png" alt="" class="w-28">
+    <h1 class="text-3xl font-bold text-center mb-8 text-[#f3f72e]">AUB Library Management System</h1>
+    <img src="assets/au.png" alt="" class="w-28">
+  </header>
+    <!-- Search Book Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Search Books</h2>
+    <div class="flex space-x-4">
+      <input type="text" id="searchInput" placeholder="Enter Book ID or Name"
+        class="border p-2 rounded-md flex-grow focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <button onclick="searchBook()" 
+        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+        Search
+      </button>
+    </div>
+    <p id="searchResult" class="mt-4 text-lg font-semibold"></p>
+  </div>
+
+  <!-- Add New Book Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Add New Book</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-x-4">
+      <input type="text" id="newBookId" placeholder="Enter Book ID"
+        class="border rounded-md focus:outline-none focus:ring-2 px-2 focus:ring-blue-400">
+      <input type="text" id="newBookName" placeholder="Enter Book Name"
+        class="border px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <input type="number" id="newBookQuantity" placeholder="Enter Quantity"
+        class="border px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button onclick="addBook()" class="bg-green-500		py-2 font-bold rounded-xl text-white" >
+        Add Books
+      </button>
+      </div>
+  </div>
+
+  <!-- Available Books Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Available Books</h2>
+    <table class="w-full table-auto border border-gray-300 rounded-lg">
+      <thead class="bg-blue-100">
+        <tr>
+          <th class="px-4 py-2 border">Book ID</th>
+          <th class="px-4 py-2 border">Book Name</th>
+          <th class="px-4 py-2 border">Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="bookTableBody" class="bg-white"></tbody>
+    </table>
+  </div>
+
+  <!-- Issue Book Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Issue a Book</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      <input type="text" id="studentName" placeholder="Enter Student Name"
+        class="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <input type="text" id="issueBookId" placeholder="Enter Book ID (e.g., B101)"
+        class="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <button onclick="issueBook()" 
+        class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
+        Issue Book
+      </button>
+      </div>
+   
+  </div>
+
+  <!-- Issued Books Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Issued Books</h2>
+    <ul id="issuedBooks" class="list-disc list-inside bg-white p-4 rounded-md shadow-md"></ul>
+  </div>
+
+  <!-- Return Book Section -->
+  <div class="mb-10">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Return a Book</h2>
+    <div class="flex space-x-4 mb-4">
+      <input type="text" id="returnBookId" placeholder="Enter Book ID (e.g., B101)"
+        class="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 flex-grow">
+      <input type="text" id="returnStudentName" placeholder="Enter Student Name"
+        class="border p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 flex-grow">
+      <button onclick="returnBook()" 
+        class="bg-amber-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+        Return Book
+      </button>
+    </div>
+  </div>
+
+  <!-- Returned Books Section -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Returned Books</h2>
+    <ul id="returnedBooks" class="list-disc list-inside bg-white p-4 rounded-md shadow-md"></ul>
+  </div>
+ </main>
+  <script src="index.js"></script>
+</body>
+</html>
